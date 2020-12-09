@@ -195,7 +195,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2019-07-01",
-            "name": "[parameters('publicIPAddresses_backendSERVER_ip_name')]",
+            "name": "[parameters('publicIPAddresses_frontendSERVER_ip_name')]",
             "location": "[resourceGroup().location]",
             "tags": {
                 "BeardSite": "[resourceGroup().location]"
@@ -205,7 +205,7 @@
                 "tier": "Regional"
             },
             "properties": {
-                "ipAddress": "13.84.179.180",
+                "ipAddress": "13.84.179.192",
                 "publicIPAddressVersion": "IPv4",
                 "publicIPAllocationMethod": "Dynamic",
                 "idleTimeoutInMinutes": 4,
@@ -460,7 +460,7 @@
                             "privateIPAddress": "10.0.4.4",
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('backendip'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('backendip'))]"
                             },
                             "subnet": {
                                 "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_BeardSite_vnet_name'), 'default')]"
@@ -501,7 +501,7 @@
                             "privateIPAddress": "10.0.4.4",
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddresses_backendSERVER_ip_name'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('backendip'))]"
                             },
                             "subnet": {
                                 "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_BeardSite_vnet_name'), 'default')]"
