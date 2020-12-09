@@ -268,7 +268,7 @@
             "name": "[parameters('virtualMachines_backendSERVER_name')]",
             "location": "[resourceGroup().location]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', variables('nicname'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_backendserver889_name'))]"
             ],
             "tags": {
                 "BeardSite": "[resourceGroup().location]"
